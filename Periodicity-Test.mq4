@@ -25,6 +25,8 @@ extern color Support_Colour = Aqua;
 #property indicator_color5 Aqua
 #property indicator_color6 Aqua
 #property indicator_color7 Aqua
+
+#define  OLine "PPLLine"
 //+------------------------------------------------------------------+
 //| Expert initialization function                                   |
 //+------------------------------------------------------------------+
@@ -484,44 +486,52 @@ int start() {
 
 int deinit() {
 
-   //DeleteObjects();
+   DeleteObjects();
+   Comment("");
    return(0);
 }
 
 
-/****** Set Comments on Chart *******/
-int showInfoChart() {
-
-   if(showinfo ==  true){
-   }
-
+//+------------------------------------------------------------------+
+//| Custom indicator deinitialization function                       |
+//+------------------------------------------------------------------+
+int DeleteObjects()
+{
+   int obj_total=ObjectsTotal();
+   for(int i = obj_total - 1; i >= 0; i--)
+   {
+       string line = ObjectName(i);
+       if(StringFind(line, OLine) == -1) continue;
+       ObjectDelete(line); 
+   }     
    return(0);
-
 }
 
 /********* Draw Lines *********/
 //----
-void drawLine(double lvl,string nome, color Col,int type)
-{
-         if(ObjectFind(nome) != 0)
+void drawLine(double lvl,string nome, color Col,int type) {
+         
+         string line = OLine +"-"+ nome;
+
+         if(ObjectFind(line) != 0)
          {
-            ObjectCreate(nome, OBJ_HLINE, 0, Time[0], lvl,Time[0],lvl);           
+            ObjectCreate(line, OBJ_HLINE, 0, Time[0], lvl,Time[0],lvl);           
             if(type == 1)
-            ObjectSet(nome, OBJPROP_STYLE, STYLE_SOLID);
+            ObjectSet(line, OBJPROP_STYLE, STYLE_SOLID);
             else
-            ObjectSet(nome, OBJPROP_STYLE, STYLE_DOT);
-            ObjectSet(nome, OBJPROP_COLOR, Col);
-            ObjectSet(nome,OBJPROP_WIDTH,1);  
+            ObjectSet(line, OBJPROP_STYLE, STYLE_DOT);
+            ObjectSet(line, OBJPROP_COLOR, Col);
+            ObjectSet(line,OBJPROP_WIDTH,1);  
          }
          else
          {
-            ObjectDelete(nome);
-            ObjectCreate(nome, OBJ_HLINE, 0, Time[0], lvl,Time[0],lvl);  
+            ObjectDelete(line);
+            ObjectCreate(line, OBJ_HLINE, 0, Time[0], lvl,Time[0],lvl);  
             if(type == 1)
-            ObjectSet(nome, OBJPROP_STYLE, STYLE_SOLID);
+            ObjectSet(line, OBJPROP_STYLE, STYLE_SOLID);
             else
-            ObjectSet(nome, OBJPROP_STYLE, STYLE_DOT);
-            ObjectSet(nome, OBJPROP_COLOR, Col);        
-            ObjectSet(nome,OBJPROP_WIDTH,1);         
+            ObjectSet(line, OBJPROP_STYLE, STYLE_DOT);
+            ObjectSet(line, OBJPROP_COLOR, Col);        
+            ObjectSet(line,OBJPROP_WIDTH,1);         
          }
 }
