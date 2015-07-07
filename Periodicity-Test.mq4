@@ -56,10 +56,13 @@ void OnInit() {
 
 int start() {
 
+
    //showInfoChart();
    str = "Account Name: " + AccountName() + "\n";
    
     if(Period() == PERIOD_M1){
+      
+      /************ Period M1 *******************/
       
       open = (double)(iOpen(Symbol(),PERIOD_M1,1));
       high = (double)(iHigh(Symbol(),PERIOD_M1,1));
@@ -72,7 +75,7 @@ int start() {
       str += "Low (L): " + low + "\n";
       str += "Close (C): " + close + "\n";
       
-      pivot = ((double)(iHigh(Symbol(),PERIOD_M1,1)) + (double)(iLow(Symbol(),PERIOD_M1,1)) + (double)(iClose(Symbol(),PERIOD_M1,1)))/3;
+      pivot = (high + low + close) / 3;
       
       resistance1 = 2 * pivot - low ;
       support1 = 2 * pivot - high ;
@@ -80,8 +83,6 @@ int start() {
       resistance3 = high + 2 * (pivot - low);
       support2 = pivot - (resistance1 - support1);
       support3 = low - 2 * (high - pivot);
-      
-      
       
       str += "Pivot (P): " + pivot + "\n" + "\n";
       str += "Resistance 1 (R1): " + resistance1 + "\n";
@@ -92,32 +93,21 @@ int start() {
       str += "Support 2 (S2): " + support2 + "\n";
       str += "Support 3 (S3): " + support3 + "\n";
       
-      drawLine(pivot,"Pivot M1",Pivot_Colour,1);
+      drawLine(pivot,"Pivot",Pivot_Colour,1);
       
-      drawLine(resistance1, "Resistance 1 M1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2 M1",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3 M1",Resistance_Colour,1);
+      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
+      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
+      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1 M1",Support_Colour,1);
-      drawLine(support2,"Support 2 M1",Support_Colour,1);
-      drawLine(support3,"Support 3 M1",Support_Colour,1);
+      drawLine(support1,"Support 1",Support_Colour,1);
+      drawLine(support2,"Support 2",Support_Colour,1);
+      drawLine(support3,"Support 3",Support_Colour,1);
       
       
       
    } else if(Period() == PERIOD_M5) {
-      str += "Period is 5 Minutes (M5)" + "\n";
-      str += "Open (O): " + (double)(iOpen(Symbol(),PERIOD_M5,1)) + "\n";
-      str += "High (H): " + (double)(iHigh(Symbol(),PERIOD_M5,1)) + "\n";
-      str += "Low (L): " + (double)(iLow(Symbol(),PERIOD_M5,1)) + "\n";
-      str += "Close (C): " + (double)(iClose(Symbol(),PERIOD_M5,1)) + "\n";
       
-      pivot = ((double)(iHigh(Symbol(),PERIOD_M5,1)) + (double)(iLow(Symbol(),PERIOD_M5,1)) + (double)(iClose(Symbol(),PERIOD_M5,1)))/3;
-      
-      str += "Pivot (P): " + pivot + "\n";
-      
-      drawLine(pivot,"PIVOT M5",Pivot_Colour,1);
-      
-      /*************************************************************/
+      /*************** Period M5 ****************************/
       open = (double)(iOpen(Symbol(),PERIOD_M5,1));
       high = (double)(iHigh(Symbol(),PERIOD_M5,1));
       low = (double)(iLow(Symbol(),PERIOD_M5,1));
@@ -129,8 +119,7 @@ int start() {
       str += "Low (L): " + low + "\n";
       str += "Close (C): " + close + "\n";
       
-      pivot = ((double)(iHigh(Symbol(),PERIOD_M5,1)) + (double)(iLow(Symbol(),PERIOD_M5,1)) + (double)(iClose(Symbol(),PERIOD_M5,1)))/3;
-      
+      pivot = (high + low + close) / 3;
       resistance1 = 2 * pivot - low ;
       support1 = 2 * pivot - high ;
       resistance2 = pivot + (resistance1 - support1);
@@ -149,73 +138,338 @@ int start() {
       str += "Support 2 (S2): " + support2 + "\n";
       str += "Support 3 (S3): " + support3 + "\n";
       
-      drawLine(pivot,"Pivot M5",Pivot_Colour,1);
+      drawLine(pivot,"Pivot",Pivot_Colour,1);
       
-      drawLine(resistance1, "Resistance 1 M5",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2 M5",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3 M5",Resistance_Colour,1);
+      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
+      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
+      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1 M5",Support_Colour,1);
-      drawLine(support2,"Support 2 M5",Support_Colour,1);
-      drawLine(support3,"Support 3 M5",Support_Colour,1);
+      drawLine(support1,"Support 1",Support_Colour,1);
+      drawLine(support2,"Support 2",Support_Colour,1);
+      drawLine(support3,"Support 3",Support_Colour,1);
       
       /*******************************************************************/
       
       
    } else if(Period() == PERIOD_M15) {
-      //Comment("Period is 15 Minutes (M15)");
+      
+      /*************** Period M15 ****************************/
+      open = (double)(iOpen(Symbol(),PERIOD_M15,1));
+      high = (double)(iHigh(Symbol(),PERIOD_M15,1));
+      low = (double)(iLow(Symbol(),PERIOD_M15,1));
+      close = (double)(iClose(Symbol(),PERIOD_M15,1));
+      
       str += "Period is 15 Minutes (M15)" + "\n";
-      str += "Open (O): " + (double)(iOpen(Symbol(),PERIOD_M15,1)) + "\n";
-      str += "High (H): " + (double)(iHigh(Symbol(),PERIOD_M15,1)) + "\n";
-      str += "Low (L): " + (double)(iLow(Symbol(),PERIOD_M15,1)) + "\n";
-      str += "Close (C): " + (double)(iClose(Symbol(),PERIOD_M15,1)) + "\n";
+      str += "Open (O): " + open + "\n";
+      str += "High (H): " + high + "\n";
+      str += "Low (L): " + low + "\n";
+      str += "Close (C): " + close + "\n";
       
-      pivot = ((double)(iHigh(Symbol(),PERIOD_M15,1)) + (double)(iLow(Symbol(),PERIOD_M15,1)) + (double)(iClose(Symbol(),PERIOD_M15,1)))/3;
+      pivot = (high + low + close) / 3;
+      resistance1 = 2 * pivot - low ;
+      support1 = 2 * pivot - high ;
+      resistance2 = pivot + (resistance1 - support1);
+      resistance3 = high + 2 * (pivot - low);
+      support2 = pivot - (resistance1 - support1);
+      support3 = low - 2 * (high - pivot);
       
-      str += "Pivot (P): " + pivot + "\n";
+      
+      
+      str += "Pivot (P): " + pivot + "\n" + "\n";
+      str += "Resistance 1 (R1): " + resistance1 + "\n";
+      str += "Resistance 2 (R2): " + resistance2 + "\n";
+      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      
+      str += "Support 1 (S1): " + support1 + "\n";
+      str += "Support 2 (S2): " + support2 + "\n";
+      str += "Support 3 (S3): " + support3 + "\n";
+      
+      drawLine(pivot,"Pivot",Pivot_Colour,1);
+      
+      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
+      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
+      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      
+      drawLine(support1,"Support 1",Support_Colour,1);
+      drawLine(support2,"Support 2",Support_Colour,1);
+      drawLine(support3,"Support 3",Support_Colour,1);
+      
+      /*******************************************************************/
+      
       
    } else if(Period() == PERIOD_M30) {
-      //Comment("Period is 30 Minutes (M30)");
+      
+      /*************** Period M30 ****************************/
+      open = (double)(iOpen(Symbol(),PERIOD_M30,1));
+      high = (double)(iHigh(Symbol(),PERIOD_M30,1));
+      low = (double)(iLow(Symbol(),PERIOD_M30,1));
+      close = (double)(iClose(Symbol(),PERIOD_M30,1));
+      
       str += "Period is 30 Minutes (M30)" + "\n";
-      str += "Open (O): " + (double)(iOpen(Symbol(),PERIOD_M30,1)) + "\n";
-      str += "High (H): " + (double)(iHigh(Symbol(),PERIOD_M30,1)) + "\n";
-      str += "Low (L): " + (double)(iLow(Symbol(),PERIOD_M30,1)) + "\n";
-      str += "Close (C): " + (double)(iClose(Symbol(),PERIOD_M30,1)) + "\n";
+      str += "Open (O): " + open + "\n";
+      str += "High (H): " + high + "\n";
+      str += "Low (L): " + low + "\n";
+      str += "Close (C): " + close + "\n";
+      
+      pivot = (high + low + close) / 3;
+      resistance1 = 2 * pivot - low ;
+      support1 = 2 * pivot - high ;
+      resistance2 = pivot + (resistance1 - support1);
+      resistance3 = high + 2 * (pivot - low);
+      support2 = pivot - (resistance1 - support1);
+      support3 = low - 2 * (high - pivot);
+      
+      
+      
+      str += "Pivot (P): " + pivot + "\n" + "\n";
+      str += "Resistance 1 (R1): " + resistance1 + "\n";
+      str += "Resistance 2 (R2): " + resistance2 + "\n";
+      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      
+      str += "Support 1 (S1): " + support1 + "\n";
+      str += "Support 2 (S2): " + support2 + "\n";
+      str += "Support 3 (S3): " + support3 + "\n";
+      
+      drawLine(pivot,"Pivot",Pivot_Colour,1);
+      
+      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
+      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
+      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      
+      drawLine(support1,"Support 1",Support_Colour,1);
+      drawLine(support2,"Support 2",Support_Colour,1);
+      drawLine(support3,"Support 3",Support_Colour,1);
+      
+      /*******************************************************************/
+      
    } else if(Period() == PERIOD_H1) {
-      //Comment("Period is 1 Hour (H1)");
-      str += "Period is 1 Hour (H1" + "\n";
-      str += "Open (O): " + (double)(iOpen(Symbol(),PERIOD_H1,1)) + "\n";
-      str += "High (H): " + (double)(iHigh(Symbol(),PERIOD_H1,1)) + "\n";
-      str += "Low (L): " + (double)(iLow(Symbol(),PERIOD_H1,1)) + "\n";
-      str += "Close (C): " + (double)(iClose(Symbol(),PERIOD_H1,1)) + "\n";
+     
+     
+     /*************** Period H1 ****************************/
+      open = (double)(iOpen(Symbol(),PERIOD_H1,1));
+      high = (double)(iHigh(Symbol(),PERIOD_H1,1));
+      low = (double)(iLow(Symbol(),PERIOD_H1,1));
+      close = (double)(iClose(Symbol(),PERIOD_H1,1));
+      
+      str += "Period is 1 Hour (H1)" + "\n";
+      str += "Open (O): " + open + "\n";
+      str += "High (H): " + high + "\n";
+      str += "Low (L): " + low + "\n";
+      str += "Close (C): " + close + "\n";
+      
+      pivot = (high + low + close) / 3;
+      resistance1 = 2 * pivot - low ;
+      support1 = 2 * pivot - high ;
+      resistance2 = pivot + (resistance1 - support1);
+      resistance3 = high + 2 * (pivot - low);
+      support2 = pivot - (resistance1 - support1);
+      support3 = low - 2 * (high - pivot);
+      
+      
+      
+      str += "Pivot (P): " + pivot + "\n" + "\n";
+      str += "Resistance 1 (R1): " + resistance1 + "\n";
+      str += "Resistance 2 (R2): " + resistance2 + "\n";
+      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      
+      str += "Support 1 (S1): " + support1 + "\n";
+      str += "Support 2 (S2): " + support2 + "\n";
+      str += "Support 3 (S3): " + support3 + "\n";
+      
+      drawLine(pivot,"Pivot",Pivot_Colour,1);
+      
+      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
+      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
+      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      
+      drawLine(support1,"Support 1",Support_Colour,1);
+      drawLine(support2,"Support 2",Support_Colour,1);
+      drawLine(support3,"Support 3",Support_Colour,1);
+      
+      /*******************************************************************/
+     
+     
    } else if(Period() == PERIOD_H4) {
-      //Comment("Period is 4 Hours (H4)");
-      str += "Period is 4 Hours (H4" + "\n";
-      str += "Open (O): " + (double)(iOpen(Symbol(),PERIOD_H4,1)) + "\n";
-      str += "High (H): " + (double)(iHigh(Symbol(),PERIOD_H4,1)) + "\n";
-      str += "Low (L): " + (double)(iLow(Symbol(),PERIOD_H4,1)) + "\n";
-      str += "Close (C): " + (double)(iClose(Symbol(),PERIOD_H4,1)) + "\n";
+      
+      /*************** Period H4 ****************************/
+      open = (double)(iOpen(Symbol(),PERIOD_H4,1));
+      high = (double)(iHigh(Symbol(),PERIOD_H4,1));
+      low = (double)(iLow(Symbol(),PERIOD_H4,1));
+      close = (double)(iClose(Symbol(),PERIOD_H4,1));
+      
+      str += "Period is 4 Hours (H4)" + "\n";
+      str += "Open (O): " + open + "\n";
+      str += "High (H): " + high + "\n";
+      str += "Low (L): " + low + "\n";
+      str += "Close (C): " + close + "\n";
+      
+      pivot = (high + low + close) / 3;
+      resistance1 = 2 * pivot - low ;
+      support1 = 2 * pivot - high ;
+      resistance2 = pivot + (resistance1 - support1);
+      resistance3 = high + 2 * (pivot - low);
+      support2 = pivot - (resistance1 - support1);
+      support3 = low - 2 * (high - pivot);
+      
+      
+      
+      str += "Pivot (P): " + pivot + "\n" + "\n";
+      str += "Resistance 1 (R1): " + resistance1 + "\n";
+      str += "Resistance 2 (R2): " + resistance2 + "\n";
+      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      
+      str += "Support 1 (S1): " + support1 + "\n";
+      str += "Support 2 (S2): " + support2 + "\n";
+      str += "Support 3 (S3): " + support3 + "\n";
+      
+      drawLine(pivot,"Pivot",Pivot_Colour,1);
+      
+      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
+      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
+      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      
+      drawLine(support1,"Support 1",Support_Colour,1);
+      drawLine(support2,"Support 2",Support_Colour,1);
+      drawLine(support3,"Support 3",Support_Colour,1);
+      
+      /*******************************************************************/
+      
    } else if(Period() == PERIOD_D1) {
-      //Comment("Period is Daily (D1)");
-      str += "Period is Daily (D1)" + "\n";
-      str += "Open (O): " + (double)(iOpen(Symbol(),PERIOD_D1,1)) + "\n";
-      str += "High (H): " + (double)(iHigh(Symbol(),PERIOD_D1,1)) + "\n";
-      str += "Low (L): " + (double)(iLow(Symbol(),PERIOD_D1,1)) + "\n";
-      str += "Close (C): " + (double)(iClose(Symbol(),PERIOD_D1,1)) + "\n";
+      
+      /*************** Period D1 ****************************/
+      open = (double)(iOpen(Symbol(),PERIOD_D1,1));
+      high = (double)(iHigh(Symbol(),PERIOD_D1,1));
+      low = (double)(iLow(Symbol(),PERIOD_D1,1));
+      close = (double)(iClose(Symbol(),PERIOD_D1,1));
+      
+      str += "Period Daily (D1)" + "\n";
+      str += "Open (O): " + open + "\n";
+      str += "High (H): " + high + "\n";
+      str += "Low (L): " + low + "\n";
+      str += "Close (C): " + close + "\n";
+      
+      pivot = (high + low + close) / 3;
+      resistance1 = 2 * pivot - low ;
+      support1 = 2 * pivot - high ;
+      resistance2 = pivot + (resistance1 - support1);
+      resistance3 = high + 2 * (pivot - low);
+      support2 = pivot - (resistance1 - support1);
+      support3 = low - 2 * (high - pivot);
+      
+      
+      
+      str += "Pivot (P): " + pivot + "\n" + "\n";
+      str += "Resistance 1 (R1): " + resistance1 + "\n";
+      str += "Resistance 2 (R2): " + resistance2 + "\n";
+      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      
+      str += "Support 1 (S1): " + support1 + "\n";
+      str += "Support 2 (S2): " + support2 + "\n";
+      str += "Support 3 (S3): " + support3 + "\n";
+      
+      drawLine(pivot,"Pivot",Pivot_Colour,1);
+      
+      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
+      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
+      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      
+      drawLine(support1,"Support 1",Support_Colour,1);
+      drawLine(support2,"Support 2",Support_Colour,1);
+      drawLine(support3,"Support 3",Support_Colour,1);
+      
+      /*******************************************************************/
+      
    } else if(Period() == PERIOD_W1) {
-      //Comment("Period is Weekly (W1)");
-      str += "Period is Weekly (W1)" + "\n";
-      str += "Open (O): " + (double)(iOpen(Symbol(),PERIOD_W1,1)) + "\n";
-      str += "High (H): " + (double)(iHigh(Symbol(),PERIOD_W1,1)) + "\n";
-      str += "Low (L): " + (double)(iLow(Symbol(),PERIOD_W1,1)) + "\n";
-      str += "Close (C): " + (double)(iClose(Symbol(),PERIOD_W1,1)) + "\n";
+      
+      /*************** Period W1 ****************************/
+      open = (double)(iOpen(Symbol(),PERIOD_W1,1));
+      high = (double)(iHigh(Symbol(),PERIOD_W1,1));
+      low = (double)(iLow(Symbol(),PERIOD_W1,1));
+      close = (double)(iClose(Symbol(),PERIOD_W1,1));
+      
+      str += "Period Weekly (W)" + "\n";
+      str += "Open (O): " + open + "\n";
+      str += "High (H): " + high + "\n";
+      str += "Low (L): " + low + "\n";
+      str += "Close (C): " + close + "\n";
+      
+      pivot = (high + low + close) / 3;
+      resistance1 = 2 * pivot - low ;
+      support1 = 2 * pivot - high ;
+      resistance2 = pivot + (resistance1 - support1);
+      resistance3 = high + 2 * (pivot - low);
+      support2 = pivot - (resistance1 - support1);
+      support3 = low - 2 * (high - pivot);
+      
+      
+      
+      str += "Pivot (P): " + pivot + "\n" + "\n";
+      str += "Resistance 1 (R1): " + resistance1 + "\n";
+      str += "Resistance 2 (R2): " + resistance2 + "\n";
+      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      
+      str += "Support 1 (S1): " + support1 + "\n";
+      str += "Support 2 (S2): " + support2 + "\n";
+      str += "Support 3 (S3): " + support3 + "\n";
+      
+      drawLine(pivot,"Pivot",Pivot_Colour,1);
+      
+      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
+      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
+      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      
+      drawLine(support1,"Support 1",Support_Colour,1);
+      drawLine(support2,"Support 2",Support_Colour,1);
+      drawLine(support3,"Support 3",Support_Colour,1);
+      
+      /*******************************************************************/
+      
    } else if(Period() == PERIOD_MN1) {
-      //Comment("Period is Monthly (MN)");
-      str += "Period is Monthly (MN)" + "\n";
-      str += "Open (O): " + (double)(iOpen(Symbol(),PERIOD_MN1,1)) + "\n";
-      str += "High (H): " + (double)(iHigh(Symbol(),PERIOD_MN1,1)) + "\n";
-      str += "Low (L): " + (double)(iLow(Symbol(),PERIOD_MN1,1)) + "\n";
-      str += "Close (C): " + (double)(iClose(Symbol(),PERIOD_MN1,1)) + "\n";
+      
+      
+      /*************** Period MN1 ****************************/
+      open = (double)(iOpen(Symbol(),PERIOD_MN1,1));
+      high = (double)(iHigh(Symbol(),PERIOD_MN1,1));
+      low = (double)(iLow(Symbol(),PERIOD_MN1,1));
+      close = (double)(iClose(Symbol(),PERIOD_MN1,1));
+      
+      str += "Period Monthly (MN)" + "\n";
+      str += "Open (O): " + open + "\n";
+      str += "High (H): " + high + "\n";
+      str += "Low (L): " + low + "\n";
+      str += "Close (C): " + close + "\n";
+      
+      pivot = (high + low + close) / 3;
+      resistance1 = 2 * pivot - low ;
+      support1 = 2 * pivot - high ;
+      resistance2 = pivot + (resistance1 - support1);
+      resistance3 = high + 2 * (pivot - low);
+      support2 = pivot - (resistance1 - support1);
+      support3 = low - 2 * (high - pivot);
+      
+      
+      
+      str += "Pivot (P): " + pivot + "\n" + "\n";
+      str += "Resistance 1 (R1): " + resistance1 + "\n";
+      str += "Resistance 2 (R2): " + resistance2 + "\n";
+      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      
+      str += "Support 1 (S1): " + support1 + "\n";
+      str += "Support 2 (S2): " + support2 + "\n";
+      str += "Support 3 (S3): " + support3 + "\n";
+      
+      drawLine(pivot,"Pivot",Pivot_Colour,1);
+      
+      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
+      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
+      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      
+      drawLine(support1,"Support 1",Support_Colour,1);
+      drawLine(support2,"Support 2",Support_Colour,1);
+      drawLine(support3,"Support 3",Support_Colour,1);
+      
+      /*******************************************************************/
+      
    }
    
          if(showinfo == true) {
