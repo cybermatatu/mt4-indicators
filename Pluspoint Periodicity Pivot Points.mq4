@@ -1,7 +1,7 @@
 //+------------------------------------------------------------------+
-//|                                               Hybrid Scalper.mq4 |
-//|                        Copyright 2015, MetaQuotes Software Corp. |
-//|                                             https://www.mql5.com |
+//|                                               Pivot Points.mq4 |
+//|                        Copyright 2015, Pluspoint Kenya Limited. |
+//|                                             https://www.figcloud.com |
 //+------------------------------------------------------------------+
 #property copyright "Pluspoint Kenya Limited"
 #property link      "https://www.figcloud.com"
@@ -25,6 +25,8 @@ extern int Text_size = 8;
 //+------------------------------------------------------------------+
 extern bool  Show_Info = true;
 extern bool Show_Pivot_Point = true;
+extern bool Show_Resistance_Labels = true;
+extern bool Show_Support_Labels = true;
 
 int Period;
 string str;
@@ -111,6 +113,19 @@ int start() {
       drawLine(support1,"Support 1",Support_Colour,1);
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
+      
+       /******** Draw Chart Labels **********/
+      if(Show_Resistance_Labels == true) {
+         drawLabel("Resistance 1",resistance1,Resistance_Colour);
+         drawLabel("Resistance 2",resistance2,Resistance_Colour);
+         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      }
+      
+      if(Show_Support_Labels == true) {
+         drawLabel("Support 1",support1,Support_Colour);
+         drawLabel("Support 2",support2,Support_Colour);
+         drawLabel("Support 3",support3,Support_Colour);
+      }
     
       
    } else if(Period() == PERIOD_M5) {
@@ -157,6 +172,19 @@ int start() {
       drawLine(support1,"Support 1",Support_Colour,1);
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
+      
+       /******** Draw Chart Labels **********/
+      if(Show_Resistance_Labels == true) {
+         drawLabel("Resistance 1",resistance1,Resistance_Colour);
+         drawLabel("Resistance 2",resistance2,Resistance_Colour);
+         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      }
+      
+      if(Show_Support_Labels == true) {
+         drawLabel("Support 1",support1,Support_Colour);
+         drawLabel("Support 2",support2,Support_Colour);
+         drawLabel("Support 3",support3,Support_Colour);
+      }
       
       /*******************************************************************/
       
@@ -208,6 +236,19 @@ int start() {
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
       
+       /******** Draw Chart Labels **********/
+      if(Show_Resistance_Labels == true) {
+         drawLabel("Resistance 1",resistance1,Resistance_Colour);
+         drawLabel("Resistance 2",resistance2,Resistance_Colour);
+         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      }
+      
+      if(Show_Support_Labels == true) {
+         drawLabel("Support 1",support1,Support_Colour);
+         drawLabel("Support 2",support2,Support_Colour);
+         drawLabel("Support 3",support3,Support_Colour);
+      }
+      
       /*******************************************************************/
       
       
@@ -257,6 +298,19 @@ int start() {
       drawLine(support1,"Support 1",Support_Colour,1);
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
+      
+       /******** Draw Chart Labels **********/
+      if(Show_Resistance_Labels == true) {
+         drawLabel("Resistance 1",resistance1,Resistance_Colour);
+         drawLabel("Resistance 2",resistance2,Resistance_Colour);
+         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      }
+      
+      if(Show_Support_Labels == true) {
+         drawLabel("Support 1",support1,Support_Colour);
+         drawLabel("Support 2",support2,Support_Colour);
+         drawLabel("Support 3",support3,Support_Colour);
+      }
       
       /*******************************************************************/
       
@@ -308,6 +362,19 @@ int start() {
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
       
+       /******** Draw Chart Labels **********/
+      if(Show_Resistance_Labels == true) {
+         drawLabel("Resistance 1",resistance1,Resistance_Colour);
+         drawLabel("Resistance 2",resistance2,Resistance_Colour);
+         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      }
+      
+      if(Show_Support_Labels == true) {
+         drawLabel("Support 1",support1,Support_Colour);
+         drawLabel("Support 2",support2,Support_Colour);
+         drawLabel("Support 3",support3,Support_Colour);
+      }
+      
       /*******************************************************************/
      
      
@@ -356,6 +423,19 @@ int start() {
       drawLine(support1,"Support 1",Support_Colour,1);
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
+      
+       /******** Draw Chart Labels **********/
+      if(Show_Resistance_Labels == true) {
+         drawLabel("Resistance 1",resistance1,Resistance_Colour);
+         drawLabel("Resistance 2",resistance2,Resistance_Colour);
+         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      }
+      
+      if(Show_Support_Labels == true) {
+         drawLabel("Support 1",support1,Support_Colour);
+         drawLabel("Support 2",support2,Support_Colour);
+         drawLabel("Support 3",support3,Support_Colour);
+      }
       
       /*******************************************************************/
       
@@ -406,6 +486,19 @@ int start() {
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
       
+       /******** Draw Chart Labels **********/
+      if(Show_Resistance_Labels == true) {
+         drawLabel("Resistance 1",resistance1,Resistance_Colour);
+         drawLabel("Resistance 2",resistance2,Resistance_Colour);
+         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      }
+      
+      if(Show_Support_Labels == true) {
+         drawLabel("Support 1",support1,Support_Colour);
+         drawLabel("Support 2",support2,Support_Colour);
+         drawLabel("Support 3",support3,Support_Colour);
+      }
+      
       /*******************************************************************/
       
    } else if(Period() == PERIOD_W1) {
@@ -454,6 +547,19 @@ int start() {
       drawLine(support1,"Support 1",Support_Colour,1);
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
+      
+       /******** Draw Chart Labels **********/
+      if(Show_Resistance_Labels == true) {
+         drawLabel("Resistance 1",resistance1,Resistance_Colour);
+         drawLabel("Resistance 2",resistance2,Resistance_Colour);
+         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      }
+      
+      if(Show_Support_Labels == true) {
+         drawLabel("Support 1",support1,Support_Colour);
+         drawLabel("Support 2",support2,Support_Colour);
+         drawLabel("Support 3",support3,Support_Colour);
+      }
       
       /*******************************************************************/
       
@@ -508,13 +614,17 @@ int start() {
       drawLine(support3,"Support 3",Support_Colour,1);
       
       /******** Draw Chart Labels **********/
-      drawLabel("Resistance 1",resistance1,Resistance_Colour);
-      drawLabel("Resistance 2",resistance2,Resistance_Colour);
-      drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      if(Show_Resistance_Labels == true) {
+         drawLabel("Resistance 1",resistance1,Resistance_Colour);
+         drawLabel("Resistance 2",resistance2,Resistance_Colour);
+         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      }
       
-      drawLabel("Support 1",support1,Support_Colour);
-      drawLabel("Support 2",support2,Support_Colour);
-      drawLabel("Support 3",support3,Support_Colour);
+      if(Show_Support_Labels == true) {
+         drawLabel("Support 1",support1,Support_Colour);
+         drawLabel("Support 2",support2,Support_Colour);
+         drawLabel("Support 3",support3,Support_Colour);
+      }
       
       /*******************************************************************/
       
