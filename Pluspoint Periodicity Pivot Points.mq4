@@ -13,9 +13,11 @@
 extern color Pivot_Colour = Yellow;
 extern color Resistance_Colour = Blue;
 extern color Support_Colour = Aqua;
-color Label_AppName = Yellow;
+//color Label_AppName = Yellow;
 
 extern int Pivot_Colour_Thickness = 1;
+extern int Text_Shift = 50;
+extern int Text_size = 8;
 
 #define  OLine "PPLLine"
 //+------------------------------------------------------------------+
@@ -56,7 +58,7 @@ int start() {
    //ObjectSet("Label_AppName", OBJPROP_YDISTANCE, 0);// Y coordinate
    //ObjectSetText("Label_AppName","Pluspoint Simple Pivot Points",14,"Arial",Aqua);
    
-   drawLabel("Label_AppName", 542.5, 0, "Pluspoint Simple Pivot Points", 14, "Tahoma", Label_AppName);
+   //drawLabel("Label_AppName", 542.5, 0, "Pluspoint Simple Pivot Points", 14, "Tahoma", Label_AppName);
    //drawLabel("Label_Open", OBJPROP_CORNER, 25, "0.0014", 10, "Tahoma", Aqua);
    
     if(Period() == PERIOD_M1){
@@ -99,6 +101,7 @@ int start() {
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
+         drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
       drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
@@ -108,8 +111,7 @@ int start() {
       drawLine(support1,"Support 1",Support_Colour,1);
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
-      
-      
+    
       
    } else if(Period() == PERIOD_M5) {
       
@@ -133,8 +135,6 @@ int start() {
       support2 = pivot - (resistance1 - support1);
       support3 = low - 2 * (high - pivot);
       
-      
-      
       str += "Pivot (P): " + pivot + "\n" + "\n";
       str += "Resistance 1 (R1): " + resistance1 + "\n";
       str += "Resistance 2 (R2): " + resistance2 + "\n";
@@ -147,6 +147,7 @@ int start() {
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
+         drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
       drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
@@ -196,6 +197,7 @@ int start() {
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
+         drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
       drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
@@ -245,6 +247,7 @@ int start() {
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
+         drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
       drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
@@ -294,6 +297,7 @@ int start() {
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
+         drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
       drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
@@ -342,6 +346,7 @@ int start() {
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
+         drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
       drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
@@ -390,6 +395,7 @@ int start() {
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
+         drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
       drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
@@ -438,6 +444,7 @@ int start() {
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
+         drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
       drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
@@ -487,15 +494,27 @@ int start() {
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
+         drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
       drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
       drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
       drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
       
+      //ChartRedraw();
+      
       drawLine(support1,"Support 1",Support_Colour,1);
       drawLine(support2,"Support 2",Support_Colour,1);
       drawLine(support3,"Support 3",Support_Colour,1);
+      
+      /******** Draw Chart Labels **********/
+      drawLabel("Resistance 1",resistance1,Resistance_Colour);
+      drawLabel("Resistance 2",resistance2,Resistance_Colour);
+      drawLabel("Resistance 3",resistance3,Resistance_Colour);
+      
+      drawLabel("Support 1",support1,Support_Colour);
+      drawLabel("Support 2",support2,Support_Colour);
+      drawLabel("Support 3",support3,Support_Colour);
       
       /*******************************************************************/
       
@@ -516,6 +535,13 @@ int deinit() {
    DeleteObjects();
    Comment("");
    ObjectDelete("Label_AppName");
+   ObjectDelete("Pivot (P)");
+   ObjectDelete("Resistance 1");
+   ObjectDelete("Resistance 2");
+   ObjectDelete("Resistance 3");
+   ObjectDelete("Support 1");
+   ObjectDelete("Support 2");
+   ObjectDelete("Support 3");
    return(0);
 }
 
@@ -565,6 +591,7 @@ void drawLine(double lvl,string nome, color Col,int type,int thickness=1) {
 }
 
 /********* Draw Labels **********/
+/*
 void drawLabel(string labelname, double xdistance, double ydistance, string labeltxt, int fontsize, string fontname, color fontcolor) {
 
    ObjectCreate(labelname, OBJ_LABEL, 0, 0, 0);
@@ -572,4 +599,19 @@ void drawLabel(string labelname, double xdistance, double ydistance, string labe
    ObjectSet(labelname, OBJPROP_YDISTANCE, ydistance);// Y coordinate
    ObjectSetText(labelname,labeltxt,fontsize,fontname,fontcolor);
 
+}
+*/
+
+void drawLabel(string nome,double lvl,color Color)
+{
+    if(ObjectFind(nome) != 0)
+    {
+        ObjectCreate(nome, OBJ_TEXT, 0, Time[Text_Shift], lvl);
+        ObjectSetText(nome, nome, Text_size, "Times New Roman", EMPTY);
+        ObjectSet(nome, OBJPROP_COLOR, Color);
+    }
+    else
+    {
+        ObjectMove(nome, 0, Time[Text_Shift], lvl);
+    }
 }
