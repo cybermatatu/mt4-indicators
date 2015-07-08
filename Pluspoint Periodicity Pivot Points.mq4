@@ -13,6 +13,7 @@
 extern color Pivot_Colour = Yellow;
 extern color Resistance_Colour = Blue;
 extern color Support_Colour = Aqua;
+color Label_AppName = Yellow;
 
 extern int Pivot_Colour_Thickness = 1;
 
@@ -41,9 +42,7 @@ double  AccountBalance();
 void OnInit() {
 
    //Comment("Period is ",Period());
-
-  
-   
+ 
 }
 
 
@@ -52,6 +51,13 @@ int start() {
 
    //showInfoChart();
    str = "Account Name: " + AccountName() + "\n";
+   //ObjectCreate("Label_AppName", OBJ_LABEL, 0, 0, 0);
+   //ObjectSet("Label_AppName", OBJPROP_XDISTANCE, 542.5);// X coordinate
+   //ObjectSet("Label_AppName", OBJPROP_YDISTANCE, 0);// Y coordinate
+   //ObjectSetText("Label_AppName","Pluspoint Simple Pivot Points",14,"Arial",Aqua);
+   
+   drawLabel("Label_AppName", 542.5, 0, "Pluspoint Simple Pivot Points", 14, "Tahoma", Label_AppName);
+   //drawLabel("Label_Open", OBJPROP_CORNER, 25, "0.0014", 10, "Tahoma", Aqua);
    
     if(Period() == PERIOD_M1){
       
@@ -85,6 +91,9 @@ int start() {
       str += "Support 1 (S1): " + support1 + "\n";
       str += "Support 2 (S2): " + support2 + "\n";
       str += "Support 3 (S3): " + support3 + "\n";
+      
+      //drawLabel("Label_AccountName", 542.5, 24, "Account Name: " + AccountName() + "\n", 8, "Tahoma", Aqua);
+      //drawLabel("Label_Open", 542.5, 40, "Open (O): " + open + " | High (H): " + high + " | Low (L): " + low + " | Close (C): " + close, 8, "Tahoma", Aqua);
       
       
       /********* Toggle Pivot Point *********/
@@ -321,7 +330,6 @@ int start() {
       support3 = low - 2 * (high - pivot);
       
       
-      
       str += "Pivot (P): " + pivot + "\n" + "\n";
       str += "Resistance 1 (R1): " + resistance1 + "\n";
       str += "Resistance 2 (R2): " + resistance2 + "\n";
@@ -507,6 +515,7 @@ int deinit() {
 
    DeleteObjects();
    Comment("");
+   ObjectDelete("Label_AppName");
    return(0);
 }
 
@@ -553,4 +562,14 @@ void drawLine(double lvl,string nome, color Col,int type,int thickness=1) {
             ObjectSet(line, OBJPROP_COLOR, Col);        
             ObjectSet(line,OBJPROP_WIDTH,thickness);         
          }
+}
+
+/********* Draw Labels **********/
+void drawLabel(string labelname, double xdistance, double ydistance, string labeltxt, int fontsize, string fontname, color fontcolor) {
+
+   ObjectCreate(labelname, OBJ_LABEL, 0, 0, 0);
+   ObjectSet(labelname, OBJPROP_XDISTANCE, xdistance);// X coordinate
+   ObjectSet(labelname, OBJPROP_YDISTANCE, ydistance);// Y coordinate
+   ObjectSetText(labelname,labeltxt,fontsize,fontname,fontcolor);
+
 }
