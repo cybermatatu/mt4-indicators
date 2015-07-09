@@ -23,7 +23,8 @@ extern int Text_size = 8;
 //+------------------------------------------------------------------+
 //| Expert initialization function                                   |
 //+------------------------------------------------------------------+
-extern bool  Show_Info = true;
+extern bool Show_Info = true;
+extern bool Show_Trend = true;
 extern bool Show_Pivot_Point = true;
 extern bool Show_Resistance_Labels = true;
 extern bool Show_Support_Labels = true;
@@ -43,18 +44,19 @@ double support2;
 double support3;
 double  AccountBalance();
 //void OnTick() 
+
 void OnInit() {
 
-   //Comment("Period is ",Period());
- 
 }
 
 
 int start() {
 
-
    //showInfoChart();
    str = "Account Name: " + AccountName() + "\n";
+   str += "Spread:" + (string)MarketInfo(Symbol(), MODE_SPREAD) + "\n";
+   str+=  "Company: " + AccountCompany() + "\n";
+   str+= "Expert Name: " + WindowExpertName() +"\n";
    //ObjectCreate("Label_AppName", OBJ_LABEL, 0, 0, 0);
    //ObjectSet("Label_AppName", OBJPROP_XDISTANCE, 542.5);// X coordinate
    //ObjectSet("Label_AppName", OBJPROP_YDISTANCE, 0);// Y coordinate
@@ -62,6 +64,11 @@ int start() {
    
    //drawLabel("Label_AppName", 542.5, 0, "Pluspoint Simple Pivot Points", 14, "Tahoma", Label_AppName);
    //drawLabel("Label_Open", OBJPROP_CORNER, 25, "0.0014", 10, "Tahoma", Aqua);
+   
+   if(Show_Trend == true) {
+   
+       Comment("Trend!");     
+   }
    
     if(Period() == PERIOD_M1){
       
@@ -96,10 +103,7 @@ int start() {
       str += "Support 2 (S2): " + support2 + "\n";
       str += "Support 3 (S3): " + support3 + "\n";
       
-      //drawLabel("Label_AccountName", 542.5, 24, "Account Name: " + AccountName() + "\n", 8, "Tahoma", Aqua);
-      //drawLabel("Label_Open", 542.5, 40, "Open (O): " + open + " | High (H): " + high + " | Low (L): " + low + " | Close (C): " + close, 8, "Tahoma", Aqua);
-      
-      
+        
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
          drawLine(pivot,"Pivot",Pivot_Colour,1,Pivot_Colour_Thickness);
