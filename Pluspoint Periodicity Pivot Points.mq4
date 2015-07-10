@@ -11,24 +11,26 @@
 
 // Pivot Points Colours
 extern color Pivot_Colour = Yellow;
-extern color Resistance_Colour = Blue;
+extern color Resistance_Colour = Red;
 extern color Support_Colour = Aqua;
+extern color Trend_Colour = Yellow;
 
 //color Label_AppName = Yellow;
 
 /******* Trend Indicators Colours *****/
-extern color SMA_Colour = Magenta;
-extern color EMA_Colour = Lime;
-extern color SMMA_Colour = LightCyan;
+//extern color SMA_Colour = Magenta;
+//extern color EMA_Colour = Lime;
+//extern color SMMA_Colour = LightCyan;
 
 //#property indicator_buffers 0
 
-extern int MA_Period=13;
-extern int MA_Shift=0;
-extern int MA_Method=0;
+int MA_Period=13;
+extern int MA_Shift=-2;
+int MA_Method=0;
 
 //---- indicator buffers
 double ExtMapBuffer[];
+//double ExtBuffer[];
 //----
 int ExtCountedBars=0;
 int draw_begin;
@@ -36,7 +38,7 @@ string short_name;
 
 /*******************************/
 extern int Pivot_Colour_Thickness = 1;
-extern int Text_Shift = 50;
+extern int Text_Shift = 30;
 extern int Text_size = 8;
 
 #define  OLine "PPLLine"
@@ -44,11 +46,13 @@ extern int Text_size = 8;
 //| Expert initialization function                                   |
 //+------------------------------------------------------------------+
 extern bool Show_Info = true;
-extern bool Show_SMA_Trend_Curve = true;
-extern bool Show_EMA_Trend_Curve = true;
-extern bool Show_Pivot_Point = true;
-extern bool Show_Resistance_Labels = true;
-extern bool Show_Support_Labels = true;
+//extern bool Show_SMA_Trend_Curve = false;
+//extern bool Show_EMA_Trend_Curve = false;
+extern bool Show_Trend_Curve = false;
+extern string Trend_Curve_Type = "EMA";
+extern bool Show_Pivot_Point = false;
+extern bool Show_Resistance_Labels = false;
+extern bool Show_Support_Labels = false;
 
 int Period;
 string str;
@@ -63,53 +67,56 @@ double resistance3;
 double support1;
 double support2;
 double support3;
-double  AccountBalance();
+//double  AccountBalance();
 //void OnTick() 
 
 
 int init() {
-/*
-   SetIndexStyle(0,DRAW_LINE,NULL,NULL,SMA_Colour);
-   SetIndexShift(0,MA_Shift);
-   IndicatorDigits(MarketInfo(Symbol(),MODE_DIGITS));
-   
-   if(MA_Period<2) MA_Period=13;
-   draw_begin=MA_Period-1;
-   
-   MA_Method=0;
-   short_name="SMA(";
-   
-   IndicatorShortName(short_name+MA_Period+")");
-   SetIndexDrawBegin(0,draw_begin);
-//---- indicator buffers mapping
-   SetIndexBuffer(0,ExtMapBuffer);
-//---- initialization done
-*/
+
 return(0);
 
 }
 
 
 int start() {
+   
+   MA_Period = Period();
+   
+   if(Show_Trend_Curve == true) {
 
-   if(Show_SMA_Trend_Curve == true) {
+         if(Trend_Curve_Type == "SMA") {
+         
+            drawTrendCurves(0,Trend_Colour,"Simple Moving Average",1);
+            sma();
+            
+         } else if(Trend_Curve_Type == "EMA") {
+         
+            drawTrendCurves(0,Trend_Colour,"Exponential Moving Average",1);
+            ema();
+            
+         }  else if(Trend_Curve_Type == "SMMA") {
+         
+            drawTrendCurves(0,Trend_Colour,"Smoothed Moving Average",1);
+            smma();
+            
+         } else if(Trend_Curve_Type == "LWMA") {
+         
+            drawTrendCurves(0,Trend_Colour,"Linear Weighted Moving Average",1);
+            lwma();
+            
+         } else {
+         
+            drawTrendCurves(0,Trend_Colour,"Exponential Moving Average",1);
+            ema();
+         }
+     }
    
-      drawTrendCurves(0,SMA_Colour,"Simple Moving Average",1);
-      sma();
-   }
-   
-   if(Show_EMA_Trend_Curve == true) {
-   
-      drawTrendCurves(0,EMA_Colour,"Exponential Moving Average",1);
-      //drawLabel(1,"EMA",Support_Colour);
-      ema();
-   }
-
    //showInfoChart();
-   str = "Account Name: " + AccountName() + "\n";
+   str = "Server Name : " + AccountServer() + "\n";
+   //str = "Account Name: " + AccountName() + "\n";
    str += "Spread:" + (string)MarketInfo(Symbol(), MODE_SPREAD) + "\n";
-   str+=  "Company: " + AccountCompany() + "\n";
-   str+= "Expert Name: " + WindowExpertName() +"\n";
+  // str+=  "Company: " + AccountCompany() + "\n";
+   //str+= "Expert Name: " + WindowExpertName() +"\n";
    //ObjectCreate("Label_AppName", OBJ_LABEL, 0, 0, 0);
    //ObjectSet("Label_AppName", OBJPROP_XDISTANCE, 542.5);// X coordinate
    //ObjectSet("Label_AppName", OBJPROP_YDISTANCE, 0);// Y coordinate
@@ -769,7 +776,7 @@ void drawLabel(string nome,double lvl,color Color)
     if(ObjectFind(nome) != 0)
     {
         ObjectCreate(nome, OBJ_TEXT, 0, Time[Text_Shift], lvl);
-        ObjectSetText(nome, nome, Text_size, "Times New Roman", EMPTY);
+        ObjectSetText(nome, nome, Text_size, "Tahoma", EMPTY);
         ObjectSet(nome, OBJPROP_COLOR, Color);
     }
     else
@@ -822,12 +829,13 @@ void sma() {
    for(i=1;i<MA_Period;i++,pos--)
       sum+=Close[pos];
 //---- main calculation loop
-   while(pos>=0)
-     {
+   while(pos>=0){
+   
       sum+=Close[pos];
       ExtMapBuffer[pos]=sum/MA_Period;
 	   sum-=Close[pos+MA_Period-1];
  	   pos--;
+ 	   
      }
 //---- zero initial bars
    if(ExtCountedBars<1)
@@ -850,5 +858,68 @@ void ema()
  	   pos--;
      }
 }
+
+//+------------------------------------------------------------------+
+//| Smoothed Moving Average                                          |
+//+------------------------------------------------------------------+
+void smma()
+  {
+   double sum=0;
+   int    i,k,pos=Bars-ExtCountedBars+1;
+//---- main calculation loop
+   pos=Bars-MA_Period;
+   if(pos>Bars-ExtCountedBars) pos=Bars-ExtCountedBars;
+   while(pos>=0)
+     {
+      if(pos==Bars-MA_Period)
+        {
+         //---- initial accumulation
+         for(i=0,k=pos;i<MA_Period;i++,k++)
+           {
+            sum+=Close[k];
+            //---- zero initial bars
+            ExtMapBuffer[k]=0;
+           }
+        }
+      else sum=ExtMapBuffer[pos+1]*(MA_Period-1)+Close[pos];
+      ExtMapBuffer[pos]=sum/MA_Period;
+ 	   pos--;
+     }
+  }
   
- 
+ //+------------------------------------------------------------------+
+//| Linear Weighted Moving Average                                   |
+//+------------------------------------------------------------------+
+void lwma()
+  {
+   double sum=0.0,lsum=0.0;
+   double price;
+   int    i,weight=0,pos=Bars-ExtCountedBars-1;
+//---- initial accumulation
+   if(pos<MA_Period) pos=MA_Period;
+   for(i=1;i<=MA_Period;i++,pos--)
+     {
+      price=Close[pos];
+      sum+=price*i;
+      lsum+=price;
+      weight+=i;
+     }
+//---- main calculation loop
+   pos++;
+   i=pos+MA_Period;
+   while(pos>=0)
+     {
+      ExtMapBuffer[pos]=sum/weight;
+      if(pos==0) break;
+      pos--;
+      i--;
+      price=Close[pos];
+      sum=sum-lsum+price*MA_Period;
+      lsum-=Close[i];
+      lsum+=price;
+     }
+//---- zero initial bars
+   if(ExtCountedBars<1)
+      for(i=1;i<MA_Period;i++) ExtMapBuffer[Bars-i]=0;
+  }
+//+------------------------------------------------------------------+
