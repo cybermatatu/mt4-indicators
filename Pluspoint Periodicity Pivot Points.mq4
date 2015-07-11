@@ -150,14 +150,14 @@ int start() {
       support2 = pivot - (resistance1 - support1);
       support3 = low - 2 * (high - pivot);
       
-      str += "Pivot (P): " + pivot + "\n" + "\n";
-      str += "Resistance 1 (R1): " + resistance1 + "\n";
-      str += "Resistance 2 (R2): " + resistance2 + "\n";
-      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      str += "(P): " + pivot + "\n" + "\n";
+      str += "(R1): " + resistance1 + "\n";
+      str += "(R2): " + resistance2 + "\n";
+      str += "(R3): " + resistance3 + "\n" + "\n";
       
-      str += "Support 1 (S1): " + support1 + "\n";
-      str += "Support 2 (S2): " + support2 + "\n";
-      str += "Support 3 (S3): " + support3 + "\n";
+      str += "(S1): " + support1 + "\n";
+      str += "(S2): " + support2 + "\n";
+      str += "(S3): " + support3 + "\n";
       
         
       /********* Toggle Pivot Point *********/
@@ -166,25 +166,25 @@ int start() {
          drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
-      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      drawLine(resistance1, "R1",Resistance_Colour,1);
+      drawLine(resistance2,"R2",Resistance_Colour,1);
+      drawLine(resistance3,"R3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1",Support_Colour,1);
-      drawLine(support2,"Support 2",Support_Colour,1);
-      drawLine(support3,"Support 3",Support_Colour,1);
+      drawLine(support1,"S1",Support_Colour,1);
+      drawLine(support2,"S2",Support_Colour,1);
+      drawLine(support3,"S3",Support_Colour,1);
       
        /******** Draw Chart Labels **********/
       if(Show_Resistance_Labels == true) {
-         drawLabel("Resistance 1",resistance1,Resistance_Colour);
-         drawLabel("Resistance 2",resistance2,Resistance_Colour);
-         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+         drawLabel("R1",resistance1,Resistance_Colour);
+         drawLabel("R2",resistance2,Resistance_Colour);
+         drawLabel("R3",resistance3,Resistance_Colour);
       }
       
       if(Show_Support_Labels == true) {
-         drawLabel("Support 1",support1,Support_Colour);
-         drawLabel("Support 2",support2,Support_Colour);
-         drawLabel("Support 3",support3,Support_Colour);
+         drawLabel("S1",support1,Support_Colour);
+         drawLabel("S2",support2,Support_Colour);
+         drawLabel("S3",support3,Support_Colour);
       }
     
       
@@ -210,14 +210,14 @@ int start() {
       support2 = pivot - (resistance1 - support1);
       support3 = low - 2 * (high - pivot);
       
-      str += "Pivot (P): " + pivot + "\n" + "\n";
-      str += "Resistance 1 (R1): " + resistance1 + "\n";
-      str += "Resistance 2 (R2): " + resistance2 + "\n";
-      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      str += "(P): " + pivot + "\n" + "\n";
+      str += "(R1): " + resistance1 + "\n";
+      str += "(R2): " + resistance2 + "\n";
+      str += "(R3): " + resistance3 + "\n" + "\n";
       
-      str += "Support 1 (S1): " + support1 + "\n";
-      str += "Support 2 (S2): " + support2 + "\n";
-      str += "Support 3 (S3): " + support3 + "\n";
+      str += "(S1): " + support1 + "\n";
+      str += "(S2): " + support2 + "\n";
+      str += "(S3): " + support3 + "\n";
       
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
@@ -225,25 +225,25 @@ int start() {
          drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
-      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      drawLine(resistance1, "R1",Resistance_Colour,1);
+      drawLine(resistance2,"R2",Resistance_Colour,1);
+      drawLine(resistance3,"R3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1",Support_Colour,1);
-      drawLine(support2,"Support 2",Support_Colour,1);
-      drawLine(support3,"Support 3",Support_Colour,1);
+      drawLine(support1,"S1",Support_Colour,1);
+      drawLine(support2,"S2",Support_Colour,1);
+      drawLine(support3,"S3",Support_Colour,1);
       
        /******** Draw Chart Labels **********/
       if(Show_Resistance_Labels == true) {
-         drawLabel("Resistance 1",resistance1,Resistance_Colour);
-         drawLabel("Resistance 2",resistance2,Resistance_Colour);
-         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+         drawLabel("R1",resistance1,Resistance_Colour);
+         drawLabel("R2",resistance2,Resistance_Colour);
+         drawLabel("R3",resistance3,Resistance_Colour);
       }
       
       if(Show_Support_Labels == true) {
-         drawLabel("Support 1",support1,Support_Colour);
-         drawLabel("Support 2",support2,Support_Colour);
-         drawLabel("Support 3",support3,Support_Colour);
+         drawLabel("S1",support1,Support_Colour);
+         drawLabel("S2",support2,Support_Colour);
+         drawLabel("S3",support3,Support_Colour);
       }
       
       /*******************************************************************/
@@ -272,14 +272,14 @@ int start() {
       support3 = low - 2 * (high - pivot);
       
       
-      str += "Pivot (P): " + pivot + "\n" + "\n";
-      str += "Resistance 1 (R1): " + resistance1 + "\n";
-      str += "Resistance 2 (R2): " + resistance2 + "\n";
-      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      str += "(P): " + pivot + "\n" + "\n";
+      str += "(R1): " + resistance1 + "\n";
+      str += "(R2): " + resistance2 + "\n";
+      str += "(R3): " + resistance3 + "\n" + "\n";
       
-      str += "Support 1 (S1): " + support1 + "\n";
-      str += "Support 2 (S2): " + support2 + "\n";
-      str += "Support 3 (S3): " + support3 + "\n";
+      str += "(S1): " + support1 + "\n";
+      str += "(S2): " + support2 + "\n";
+      str += "(S3): " + support3 + "\n";
       
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
@@ -287,25 +287,25 @@ int start() {
          drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
-      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      drawLine(resistance1, "R1",Resistance_Colour,1);
+      drawLine(resistance2,"R2",Resistance_Colour,1);
+      drawLine(resistance3,"R3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1",Support_Colour,1);
-      drawLine(support2,"Support 2",Support_Colour,1);
-      drawLine(support3,"Support 3",Support_Colour,1);
+      drawLine(support1,"S1",Support_Colour,1);
+      drawLine(support2,"S2",Support_Colour,1);
+      drawLine(support3,"S3",Support_Colour,1);
       
        /******** Draw Chart Labels **********/
       if(Show_Resistance_Labels == true) {
-         drawLabel("Resistance 1",resistance1,Resistance_Colour);
-         drawLabel("Resistance 2",resistance2,Resistance_Colour);
-         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+         drawLabel("R1",resistance1,Resistance_Colour);
+         drawLabel("R2",resistance2,Resistance_Colour);
+         drawLabel("R3",resistance3,Resistance_Colour);
       }
       
       if(Show_Support_Labels == true) {
-         drawLabel("Support 1",support1,Support_Colour);
-         drawLabel("Support 2",support2,Support_Colour);
-         drawLabel("Support 3",support3,Support_Colour);
+         drawLabel("S1",support1,Support_Colour);
+         drawLabel("S2",support2,Support_Colour);
+         drawLabel("S3",support3,Support_Colour);
       }
       
       /*******************************************************************/
@@ -335,14 +335,14 @@ int start() {
       
       
       
-      str += "Pivot (P): " + pivot + "\n" + "\n";
-      str += "Resistance 1 (R1): " + resistance1 + "\n";
-      str += "Resistance 2 (R2): " + resistance2 + "\n";
-      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      str += "(P): " + pivot + "\n" + "\n";
+      str += "(R1): " + resistance1 + "\n";
+      str += "(R2): " + resistance2 + "\n";
+      str += "(R3): " + resistance3 + "\n" + "\n";
       
-      str += "Support 1 (S1): " + support1 + "\n";
-      str += "Support 2 (S2): " + support2 + "\n";
-      str += "Support 3 (S3): " + support3 + "\n";
+      str += "(S1): " + support1 + "\n";
+      str += "(S2): " + support2 + "\n";
+      str += "(S3): " + support3 + "\n";
       
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
@@ -350,25 +350,25 @@ int start() {
          drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
-      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      drawLine(resistance1, "R1",Resistance_Colour,1);
+      drawLine(resistance2,"R2",Resistance_Colour,1);
+      drawLine(resistance3,"R3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1",Support_Colour,1);
-      drawLine(support2,"Support 2",Support_Colour,1);
-      drawLine(support3,"Support 3",Support_Colour,1);
+      drawLine(support1,"S1",Support_Colour,1);
+      drawLine(support2,"S2",Support_Colour,1);
+      drawLine(support3,"S3",Support_Colour,1);
       
        /******** Draw Chart Labels **********/
       if(Show_Resistance_Labels == true) {
-         drawLabel("Resistance 1",resistance1,Resistance_Colour);
-         drawLabel("Resistance 2",resistance2,Resistance_Colour);
-         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+         drawLabel("R1",resistance1,Resistance_Colour);
+         drawLabel("R2",resistance2,Resistance_Colour);
+         drawLabel("R3",resistance3,Resistance_Colour);
       }
       
       if(Show_Support_Labels == true) {
-         drawLabel("Support 1",support1,Support_Colour);
-         drawLabel("Support 2",support2,Support_Colour);
-         drawLabel("Support 3",support3,Support_Colour);
+         drawLabel("S1",support1,Support_Colour);
+         drawLabel("S2",support2,Support_Colour);
+         drawLabel("S3",support3,Support_Colour);
       }
       
       /*******************************************************************/
@@ -398,14 +398,14 @@ int start() {
       
       
       
-      str += "Pivot (P): " + pivot + "\n" + "\n";
-      str += "Resistance 1 (R1): " + resistance1 + "\n";
-      str += "Resistance 2 (R2): " + resistance2 + "\n";
-      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      str += "(P): " + pivot + "\n" + "\n";
+      str += "(R1): " + resistance1 + "\n";
+      str += "(R2): " + resistance2 + "\n";
+      str += "(R3): " + resistance3 + "\n" + "\n";
       
-      str += "Support 1 (S1): " + support1 + "\n";
-      str += "Support 2 (S2): " + support2 + "\n";
-      str += "Support 3 (S3): " + support3 + "\n";
+      str += "(S1): " + support1 + "\n";
+      str += "(S2): " + support2 + "\n";
+      str += "(S3): " + support3 + "\n";
       
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
@@ -413,25 +413,25 @@ int start() {
          drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
-      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      drawLine(resistance1, "R1",Resistance_Colour,1);
+      drawLine(resistance2,"R2",Resistance_Colour,1);
+      drawLine(resistance3,"R3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1",Support_Colour,1);
-      drawLine(support2,"Support 2",Support_Colour,1);
-      drawLine(support3,"Support 3",Support_Colour,1);
+      drawLine(support1,"S1",Support_Colour,1);
+      drawLine(support2,"S2",Support_Colour,1);
+      drawLine(support3,"S3",Support_Colour,1);
       
        /******** Draw Chart Labels **********/
       if(Show_Resistance_Labels == true) {
-         drawLabel("Resistance 1",resistance1,Resistance_Colour);
-         drawLabel("Resistance 2",resistance2,Resistance_Colour);
-         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+         drawLabel("R1",resistance1,Resistance_Colour);
+         drawLabel("R2",resistance2,Resistance_Colour);
+         drawLabel("R3",resistance3,Resistance_Colour);
       }
       
       if(Show_Support_Labels == true) {
-         drawLabel("Support 1",support1,Support_Colour);
-         drawLabel("Support 2",support2,Support_Colour);
-         drawLabel("Support 3",support3,Support_Colour);
+         drawLabel("S1",support1,Support_Colour);
+         drawLabel("S2",support2,Support_Colour);
+         drawLabel("S3",support3,Support_Colour);
       }
       
       /*******************************************************************/
@@ -460,14 +460,14 @@ int start() {
       support3 = low - 2 * (high - pivot);
       
       
-      str += "Pivot (P): " + pivot + "\n" + "\n";
-      str += "Resistance 1 (R1): " + resistance1 + "\n";
-      str += "Resistance 2 (R2): " + resistance2 + "\n";
-      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      str += "(P): " + pivot + "\n" + "\n";
+      str += "(R1): " + resistance1 + "\n";
+      str += "(R2): " + resistance2 + "\n";
+      str += "(R3): " + resistance3 + "\n" + "\n";
       
-      str += "Support 1 (S1): " + support1 + "\n";
-      str += "Support 2 (S2): " + support2 + "\n";
-      str += "Support 3 (S3): " + support3 + "\n";
+      str += "(S1): " + support1 + "\n";
+      str += "(S2): " + support2 + "\n";
+      str += "(S3): " + support3 + "\n";
       
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
@@ -475,25 +475,25 @@ int start() {
          drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
-      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      drawLine(resistance1, "R1",Resistance_Colour,1);
+      drawLine(resistance2,"R2",Resistance_Colour,1);
+      drawLine(resistance3,"R3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1",Support_Colour,1);
-      drawLine(support2,"Support 2",Support_Colour,1);
-      drawLine(support3,"Support 3",Support_Colour,1);
+      drawLine(support1,"S1",Support_Colour,1);
+      drawLine(support2,"S2",Support_Colour,1);
+      drawLine(support3,"S3",Support_Colour,1);
       
        /******** Draw Chart Labels **********/
       if(Show_Resistance_Labels == true) {
-         drawLabel("Resistance 1",resistance1,Resistance_Colour);
-         drawLabel("Resistance 2",resistance2,Resistance_Colour);
-         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+         drawLabel("R1",resistance1,Resistance_Colour);
+         drawLabel("R2",resistance2,Resistance_Colour);
+         drawLabel("R3",resistance3,Resistance_Colour);
       }
       
       if(Show_Support_Labels == true) {
-         drawLabel("Support 1",support1,Support_Colour);
-         drawLabel("Support 2",support2,Support_Colour);
-         drawLabel("Support 3",support3,Support_Colour);
+         drawLabel("S1",support1,Support_Colour);
+         drawLabel("S2",support2,Support_Colour);
+         drawLabel("S3",support3,Support_Colour);
       }
       
       /*******************************************************************/
@@ -522,14 +522,14 @@ int start() {
       
       
       
-      str += "Pivot (P): " + pivot + "\n" + "\n";
-      str += "Resistance 1 (R1): " + resistance1 + "\n";
-      str += "Resistance 2 (R2): " + resistance2 + "\n";
-      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      str += "(P): " + pivot + "\n" + "\n";
+      str += "(R1): " + resistance1 + "\n";
+      str += "(R2): " + resistance2 + "\n";
+      str += "(R3): " + resistance3 + "\n" + "\n";
       
-      str += "Support 1 (S1): " + support1 + "\n";
-      str += "Support 2 (S2): " + support2 + "\n";
-      str += "Support 3 (S3): " + support3 + "\n";
+      str += "(S1): " + support1 + "\n";
+      str += "(S2): " + support2 + "\n";
+      str += "(S3): " + support3 + "\n";
       
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
@@ -537,25 +537,25 @@ int start() {
          drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
-      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      drawLine(resistance1, "R1",Resistance_Colour,1);
+      drawLine(resistance2,"R2",Resistance_Colour,1);
+      drawLine(resistance3,"R3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1",Support_Colour,1);
-      drawLine(support2,"Support 2",Support_Colour,1);
-      drawLine(support3,"Support 3",Support_Colour,1);
+      drawLine(support1,"S1",Support_Colour,1);
+      drawLine(support2,"S2",Support_Colour,1);
+      drawLine(support3,"S3",Support_Colour,1);
       
        /******** Draw Chart Labels **********/
       if(Show_Resistance_Labels == true) {
-         drawLabel("Resistance 1",resistance1,Resistance_Colour);
-         drawLabel("Resistance 2",resistance2,Resistance_Colour);
-         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+         drawLabel("R1",resistance1,Resistance_Colour);
+         drawLabel("R2",resistance2,Resistance_Colour);
+         drawLabel("R3",resistance3,Resistance_Colour);
       }
       
       if(Show_Support_Labels == true) {
-         drawLabel("Support 1",support1,Support_Colour);
-         drawLabel("Support 2",support2,Support_Colour);
-         drawLabel("Support 3",support3,Support_Colour);
+         drawLabel("S1",support1,Support_Colour);
+         drawLabel("S2",support2,Support_Colour);
+         drawLabel("S3",support3,Support_Colour);
       }
       
       /*******************************************************************/
@@ -584,14 +584,14 @@ int start() {
       
       
       
-      str += "Pivot (P): " + pivot + "\n" + "\n";
-      str += "Resistance 1 (R1): " + resistance1 + "\n";
-      str += "Resistance 2 (R2): " + resistance2 + "\n";
-      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      str += "(P): " + pivot + "\n" + "\n";
+      str += "(R1): " + resistance1 + "\n";
+      str += "(R2): " + resistance2 + "\n";
+      str += "(R3): " + resistance3 + "\n" + "\n";
       
-      str += "Support 1 (S1): " + support1 + "\n";
-      str += "Support 2 (S2): " + support2 + "\n";
-      str += "Support 3 (S3): " + support3 + "\n";
+      str += "(S1): " + support1 + "\n";
+      str += "(S2): " + support2 + "\n";
+      str += "(S3): " + support3 + "\n";
       
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
@@ -599,25 +599,25 @@ int start() {
          drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
-      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      drawLine(resistance1, "R1",Resistance_Colour,1);
+      drawLine(resistance2,"R2",Resistance_Colour,1);
+      drawLine(resistance3,"R3",Resistance_Colour,1);
       
-      drawLine(support1,"Support 1",Support_Colour,1);
-      drawLine(support2,"Support 2",Support_Colour,1);
-      drawLine(support3,"Support 3",Support_Colour,1);
+      drawLine(support1,"S1",Support_Colour,1);
+      drawLine(support2,"S2",Support_Colour,1);
+      drawLine(support3,"S3",Support_Colour,1);
       
        /******** Draw Chart Labels **********/
       if(Show_Resistance_Labels == true) {
-         drawLabel("Resistance 1",resistance1,Resistance_Colour);
-         drawLabel("Resistance 2",resistance2,Resistance_Colour);
-         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+         drawLabel("R1",resistance1,Resistance_Colour);
+         drawLabel("R2",resistance2,Resistance_Colour);
+         drawLabel("R3",resistance3,Resistance_Colour);
       }
       
       if(Show_Support_Labels == true) {
-         drawLabel("Support 1",support1,Support_Colour);
-         drawLabel("Support 2",support2,Support_Colour);
-         drawLabel("Support 3",support3,Support_Colour);
+         drawLabel("S1",support1,Support_Colour);
+         drawLabel("S2",support2,Support_Colour);
+         drawLabel("S3",support3,Support_Colour);
       }
       
       /*******************************************************************/
@@ -647,14 +647,14 @@ int start() {
       
       
       
-      str += "Pivot (P): " + pivot + "\n" + "\n";
-      str += "Resistance 1 (R1): " + resistance1 + "\n";
-      str += "Resistance 2 (R2): " + resistance2 + "\n";
-      str += "Resistance 3 (R3): " + resistance3 + "\n" + "\n";
+      str += "(P): " + pivot + "\n" + "\n";
+      str += "(R1): " + resistance1 + "\n";
+      str += "(R2): " + resistance2 + "\n";
+      str += "(R3): " + resistance3 + "\n" + "\n";
       
-      str += "Support 1 (S1): " + support1 + "\n";
-      str += "Support 2 (S2): " + support2 + "\n";
-      str += "Support 3 (S3): " + support3 + "\n";
+      str += "(S1): " + support1 + "\n";
+      str += "(S2): " + support2 + "\n";
+      str += "(S3): " + support3 + "\n";
       
       /********* Toggle Pivot Point *********/
       if(Show_Pivot_Point == true) {
@@ -662,27 +662,27 @@ int start() {
          drawLabel("Pivot (P)",pivot,Pivot_Colour);
       }
       
-      drawLine(resistance1, "Resistance 1",Resistance_Colour,1);
-      drawLine(resistance2,"Resistance 2",Resistance_Colour,1);
-      drawLine(resistance3,"Resistance 3",Resistance_Colour,1);
+      drawLine(resistance1, "R1",Resistance_Colour,1);
+      drawLine(resistance2,"R2",Resistance_Colour,1);
+      drawLine(resistance3,"R3",Resistance_Colour,1);
       
       //ChartRedraw();
       
-      drawLine(support1,"Support 1",Support_Colour,1);
-      drawLine(support2,"Support 2",Support_Colour,1);
-      drawLine(support3,"Support 3",Support_Colour,1);
+      drawLine(support1,"S1",Support_Colour,1);
+      drawLine(support2,"S2",Support_Colour,1);
+      drawLine(support3,"S3",Support_Colour,1);
       
       /******** Draw Chart Labels **********/
       if(Show_Resistance_Labels == true) {
-         drawLabel("Resistance 1",resistance1,Resistance_Colour);
-         drawLabel("Resistance 2",resistance2,Resistance_Colour);
-         drawLabel("Resistance 3",resistance3,Resistance_Colour);
+         drawLabel("R1",resistance1,Resistance_Colour);
+         drawLabel("R2",resistance2,Resistance_Colour);
+         drawLabel("R3",resistance3,Resistance_Colour);
       }
       
       if(Show_Support_Labels == true) {
-         drawLabel("Support 1",support1,Support_Colour);
-         drawLabel("Support 2",support2,Support_Colour);
-         drawLabel("Support 3",support3,Support_Colour);
+         drawLabel("S1",support1,Support_Colour);
+         drawLabel("S2",support2,Support_Colour);
+         drawLabel("S3",support3,Support_Colour);
       }
       
       /*******************************************************************/
@@ -705,12 +705,12 @@ int deinit() {
    Comment("");
    ObjectDelete("Label_AppName");
    ObjectDelete("Pivot (P)");
-   ObjectDelete("Resistance 1");
-   ObjectDelete("Resistance 2");
-   ObjectDelete("Resistance 3");
-   ObjectDelete("Support 1");
-   ObjectDelete("Support 2");
-   ObjectDelete("Support 3");
+   ObjectDelete("R1");
+   ObjectDelete("R2");
+   ObjectDelete("R3");
+   ObjectDelete("S1");
+   ObjectDelete("S2");
+   ObjectDelete("S3");
    return(0);
 }
 
