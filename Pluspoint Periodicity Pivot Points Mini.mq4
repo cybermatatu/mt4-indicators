@@ -1076,15 +1076,15 @@ void drawLabel(string labelname, double xdistance, double ydistance, string labe
 void drawLowerChart(string name, double val, color col) {
    if(ObjectFind(name) != 0) {
       ObjectCreate(name, OBJ_HLINE, 1, Time[0], val,Time[0],val);           
-         //ObjectSet("test", OBJPROP_STYLE, STYLE_SOLID);
-      ObjectSet(name, OBJPROP_STYLE, STYLE_DOT);
+      ObjectSet("test", OBJPROP_STYLE, STYLE_SOLID);
+      //ObjectSet(name, OBJPROP_STYLE, STYLE_DOT);
       ObjectSet(name, OBJPROP_COLOR, col);
       ObjectSet(name,OBJPROP_WIDTH,1);
    } else {
        ObjectDelete(name);
        ObjectCreate(name, OBJ_HLINE, 1, Time[0], val,Time[0],val);           
-         //ObjectSet("test", OBJPROP_STYLE, STYLE_SOLID);
-       ObjectSet(name, OBJPROP_STYLE, STYLE_DOT);
+       ObjectSet("test", OBJPROP_STYLE, STYLE_SOLID);
+       //ObjectSet(name, OBJPROP_STYLE, STYLE_DOT);
        ObjectSet(name, OBJPROP_COLOR, col);
        ObjectSet(name,OBJPROP_WIDTH,1);
    }
