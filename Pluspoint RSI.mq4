@@ -59,6 +59,7 @@ int OnInit(void)
      }
 //---
    SetIndexDrawBegin(0,InpRSIPeriod);
+   
 //--- initialization done
    return(INIT_SUCCEEDED);
   }
