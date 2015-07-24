@@ -1,19 +1,19 @@
 //+------------------------------------------------------------------+
-//|                                      MACD BuySell Indicators.mq4 |
-//|                 Copyright © 2015, Pluspoint Kenya Ltd, Eli Hayun |
-//|                                        http://www.figcloud.com   |
+//|                                            BuySellIndicators.mq4 |
+//|                                      Copyright © 2005, Eli Hayun |
+//|                                        http://www.elihayun.com   |
 //+------------------------------------------------------------------+
-#property copyright "Copyright © 2015, Pluspoint Kenya Ltd"
-#property link      "http://www.figcloud.com"
+#property copyright "Copyright © 2005, Eli Hayun"
+#property link      "http://www.elihayun.com"
  
 #property indicator_chart_window
 #property indicator_buffers 6
-#property indicator_color1 Chartreuse
-#property indicator_color2 OrangeRed
-#property indicator_color3 Chartreuse
-#property indicator_color4 OrangeRed
-#property indicator_color5 Chartreuse
-#property indicator_color6 OrangeRed
+#property indicator_color1 Blue
+#property indicator_color2 Red
+#property indicator_color3 Blue
+#property indicator_color4 Red
+#property indicator_color5 Blue
+#property indicator_color6 Red
 //---- input parameters
  
 //---- buffers
@@ -43,19 +43,19 @@ int init()
     SetIndexBuffer(4,dUpBothBuffer);
     SetIndexBuffer(5,dDownBothBuffer);   
 //---- drawing settings
-    SetIndexStyle(0,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(0,DRAW_ARROW);
     SetIndexArrow(0,233);
-    SetIndexStyle(1,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(1,DRAW_ARROW);
     SetIndexArrow(1,234);
  
-    SetIndexStyle(2,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(2,DRAW_ARROW);
     SetIndexArrow(2,241);
-    SetIndexStyle(3,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(3,DRAW_ARROW);
     SetIndexArrow(3,242);
  
-    SetIndexStyle(4,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(4,DRAW_ARROW);
     SetIndexArrow(4,252);
-    SetIndexStyle(5,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(5,DRAW_ARROW);
     SetIndexArrow(5,252);
  
 //----

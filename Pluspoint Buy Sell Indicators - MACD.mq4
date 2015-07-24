@@ -1,19 +1,34 @@
 //+------------------------------------------------------------------+
 //|                                      MACD BuySell Indicators.mq4 |
-//|                 Copyright © 2015, Pluspoint Kenya Ltd, Eli Hayun |
+//|                 Copyright © 2015, Pluspoint Kenya Ltd            |
 //|                                        http://www.figcloud.com   |
 //+------------------------------------------------------------------+
 #property copyright "Copyright © 2015, Pluspoint Kenya Ltd"
 #property link      "http://www.figcloud.com"
+#property version   "1.00"
+#property description "Uses MACD and RSVI to determine when to buy or sell"
+//#property description "It is possible to embed a large number of other indicators showing the highs and"
+//#property description "lows and automatically build from these highs and lows various graphical tools"
  
 #property indicator_chart_window
 #property indicator_buffers 6
-#property indicator_color1 Chartreuse
-#property indicator_color2 OrangeRed
-#property indicator_color3 Chartreuse
-#property indicator_color4 OrangeRed
-#property indicator_color5 Chartreuse
-#property indicator_color6 OrangeRed
+//#property indicator_color1 Yellow
+//#property indicator_color2 Aqua
+//#property indicator_color3 Yellow
+//#property indicator_color4 Aqua
+//#property indicator_color5 Yellow
+//#property indicator_color6 Aqua
+
+extern color RVI_Buy_Colour = Yellow;
+extern color RVI_Sell_Colour = Aqua;
+
+extern color MACD_Buy_Colour = Yellow;
+extern color MACD_Sell_Colour = Aqua;
+
+extern color Strong_Buy_Colour = Yellow;
+extern color Strong_Sell_Colour = Aqua;
+
+extern int Arrow_Size = 1;
 //---- input parameters
  
 //---- buffers
@@ -43,20 +58,21 @@ int init()
     SetIndexBuffer(4,dUpBothBuffer);
     SetIndexBuffer(5,dDownBothBuffer);   
 //---- drawing settings
-    SetIndexStyle(0,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(0,DRAW_ARROW,EMPTY,Arrow_Size,RVI_Buy_Colour);
     SetIndexArrow(0,233);
-    SetIndexStyle(1,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(1,DRAW_ARROW,EMPTY,Arrow_Size,RVI_Sell_Colour);
     SetIndexArrow(1,234);
  
-    SetIndexStyle(2,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(2,DRAW_ARROW,EMPTY,Arrow_Size,MACD_Buy_Colour);
     SetIndexArrow(2,241);
-    SetIndexStyle(3,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(3,DRAW_ARROW,EMPTY,Arrow_Size,MACD_Sell_Colour);
     SetIndexArrow(3,242);
  
-    SetIndexStyle(4,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(4,DRAW_ARROW,EMPTY,Arrow_Size,Strong_Buy_Colour);
     SetIndexArrow(4,252);
-    SetIndexStyle(5,DRAW_ARROW,EMPTY,4);
+    SetIndexStyle(5,DRAW_ARROW,EMPTY,Arrow_Size,Strong_Sell_Colour);
     SetIndexArrow(5,252);
+    //SetIndexArrow(5,SYMBOL_THUMBSUP);
  
 //----
     SetIndexEmptyValue(0,0.0);
@@ -66,10 +82,10 @@ int init()
     SetIndexEmptyValue(4,0.0);
     SetIndexEmptyValue(5,0.0);
 //---- name for DataWindow
-    SetIndexLabel(0,"Rvi Buy");
-    SetIndexLabel(1,"Rvi Sell");
-    SetIndexLabel(2,"Macd Buy");
-    SetIndexLabel(3,"Macd Sell");
+    SetIndexLabel(0,"RVI Buy");
+    SetIndexLabel(1,"RVI Sell");
+    SetIndexLabel(2,"MACD Buy");
+    SetIndexLabel(3,"MACD Sell");
     SetIndexLabel(4,"Strong Buy");
     SetIndexLabel(5,"Strong Sell");
 //----
@@ -138,6 +154,7 @@ int start()
       if ((valm0 > sigm0) && (valm1 < sigm1))
       {
          dUpMacdBuffer[ii] = Low[ii] - 0.0004;
+         
       }
       if ((valm0 < sigm0) && (valm1 > sigm1))
       {
@@ -153,6 +170,8 @@ int start()
             {
                Print("Buy alert");
                PlaySound("alert2.wav");
+               //nBuy();
+               //Alert ("BUY");
             }
       }
       if ((dDownRviBuffer[ii] != 0) && (dDownMacdBuffer[ii]))
@@ -164,9 +183,18 @@ int start()
          {
             Print("Sell alert");
             PlaySound("alert2.wav");
+            //Alert ("SELL");
          }
       }
    }
- 
 }
+
+/****** BUY *********/
+int nBuy() {
+   if(OrderSend(Symbol(),OP_BUY,0.1,Ask,3,Bid-15*Point,Bid+15*Point)) {
+      Alert (GetLastError()); 
+      return(0);
+   }
+   Alert (GetLastError()); 
+ }
 
